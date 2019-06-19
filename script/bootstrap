@@ -137,8 +137,15 @@ install_dotfiles () {
   done
 }
 
+install_zsh_theme () {
+  info 'installing powerlevel10k theme'
+  
+  git clone https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+}
+
 setup_gitconfig
 install_dotfiles
+install_zsh_theme
 
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
