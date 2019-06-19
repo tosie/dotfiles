@@ -50,10 +50,10 @@ bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
 
 # Themes
-if [[ -a ~/powerlevel10k/powerlevel10k.zsh-theme ]]; then
-  if [[ -a $ZSH/zsh/themes/purepower ]]; then
-    source $ZSH/zsh/themes/purepower
+if [[ -a ~/.powerlevel10k/powerlevel10k.zsh-theme ]]; then
+  if [[ -a ~/.purepower ]]; then
+    source ~/.purepower
   fi
   
-  source ~/powerlevel10k/powerlevel10k.zsh-theme
+  source ~/.powerlevel10k/powerlevel10k.zsh-theme
 fi

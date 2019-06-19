@@ -140,7 +140,8 @@ install_dotfiles () {
 install_zsh_theme () {
   info 'installing powerlevel10k theme'
   
-  git clone https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+  ( cd && curl -fsSLO https://raw.githubusercontent.com/romkatv/dotfiles-public/master/.purepower )
+  git clone https://github.com/romkatv/powerlevel10k.git ~/.powerlevel10k
 }
 
 setup_gitconfig
