@@ -1,1 +1,1 @@
-export PATH="/Users/ts/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PATH="~/perl5/bin${PATH:+:${PATH}}"; export PATH;
