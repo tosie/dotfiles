@@ -28,7 +28,6 @@ fail () {
 }
 
 setup_gitconfig () {
-  echo "QUIET GIT=$quiet"
   if ! [ -f git/gitconfig.local.symlink ]
   then
     info 'setup gitconfig'
@@ -39,10 +38,16 @@ setup_gitconfig () {
       git_credential='osxkeychain'
     fi
 
-    user ' - What is your github author name?'
-    read -e git_authorname
-    user ' - What is your github author email?'
-    read -e git_authoremail
+    if [ "$quiet" == "true" ]
+    then
+      git_authorname=$USER
+      git_authorname=$USER@$HOST
+    else
+      user ' - What is your github author name?'
+      read -e git_authorname
+      user ' - What is your github author email?'
+      read -e git_authoremail
+    fi
 
     sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig.local.symlink.example > git/gitconfig.local.symlink
 
@@ -56,7 +61,12 @@ link_file () {
 
   local overwrite= backup= skip=
   local action=
-
+  
+  if [ "$quiet" == "true" ]
+  then
+    overwrite_all=true
+  fi
+  
   if [ -f "$dst" -o -d "$dst" -o -L "$dst" ]
   then
 
@@ -146,11 +156,12 @@ install_zsh_theme () {
 }
 
 
-quiet=0
-while getopts ":q:" o; do
+# See https://www.shellscript.sh/tips/getopts/
+quiet=false
+while getopts "q" o; do
     case "${o}" in
         q)
-            quiet=1
+            quiet=true
             ;;
         *)
             ;;
@@ -159,7 +170,6 @@ done
 shift $((OPTIND-1))
 
 
-echo "QUIET=$quiet"
 setup_gitconfig
 install_dotfiles
 install_zsh_theme
