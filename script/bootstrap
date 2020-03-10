@@ -28,6 +28,7 @@ fail () {
 }
 
 setup_gitconfig () {
+  echo "QUIET GIT=$quiet"
   if ! [ -f git/gitconfig.local.symlink ]
   then
     info 'setup gitconfig'
@@ -144,6 +145,21 @@ install_zsh_theme () {
   git clone https://github.com/romkatv/powerlevel10k.git ~/.powerlevel10k
 }
 
+
+quiet=0
+while getopts ":q:" o; do
+    case "${o}" in
+        q)
+            quiet=1
+            ;;
+        *)
+            ;;
+    esac
+done
+shift $((OPTIND-1))
+
+
+echo "QUIET=$quiet"
 setup_gitconfig
 install_dotfiles
 install_zsh_theme
