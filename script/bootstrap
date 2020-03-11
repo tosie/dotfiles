@@ -151,9 +151,10 @@ install_dotfiles () {
 install_zsh_theme () {
   info 'installing powerlevel10k theme'
   
-  if ! [ -f ~/.powerlevel10k/powerlevel10k.zsh-theme ]
+  if [ -f ~/.powerlevel10k/powerlevel10k.zsh-theme ]
   then
-    ( cd && curl -fsSLO https://raw.githubusercontent.com/romkatv/dotfiles-public/master/.purepower )
+    cd ~/.powerlevel10k && git reset --hard && git pull --recurse-submodules=yes && cd -
+  else
     git clone --depth 1 https://github.com/romkatv/powerlevel10k.git ~/.powerlevel10k
   fi
 }
