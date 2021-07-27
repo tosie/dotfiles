@@ -40,4 +40,8 @@
 	required = true
 [user]
 	name = Thomas Siebers
-	email = ts@its-waiblingen.de
+	email = tom@tsiebers.de
+[init]
+	defaultBranch = main
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
