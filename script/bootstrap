@@ -49,7 +49,7 @@ setup_gitconfig () {
       read -e git_authoremail
     fi
 
-    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig.local.symlink.example > ~/.gitconfig.local
+    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" git/gitconfig.local.symlink.example > ~/.gitconfig.local
 
     success 'gitconfig'
   fi
