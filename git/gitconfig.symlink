@@ -56,15 +56,11 @@
 	process = git-lfs filter-process
 	required = true
   
-[user]
-	name = Thomas Siebers
-	email = tom@tsiebers.de
-  
 [init]
 	defaultBranch = main
   
-[url "ssh://git@github.com/"]
-	insteadOf = https://github.com/
+# [url "ssh://git@github.com/"]
+# 	insteadOf = https://github.com/
 
 [includeIf "gitdir/i:/Users/"]
   path = .gitconfig-macos
