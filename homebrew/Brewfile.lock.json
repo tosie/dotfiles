@@ -1,0 +1,27 @@
+{
+  "entries": {
+    "tap": {
+      "helix-editor/helix": {
+        "revision": "7baef9eb259fce9e912554c01409a7ed771b0dd5"
+      }
+    },
+    "brew": {
+      "helix": {
+        "version": "0.5.0",
+        "bottle": false
+      }
+    }
+  },
+  "system": {
+    "macos": {
+      "monterey": {
+        "HOMEBREW_VERSION": "3.3.8",
+        "HOMEBREW_PREFIX": "/usr/local",
+        "Homebrew/homebrew-core": "46527b04be73e520f8a0c117448ba1c41a0df83b",
+        "CLT": "13.2.0.0.1.1638488800",
+        "Xcode": "13.2",
+        "macOS": "12.1"
+      }
+    }
+  }
+}
