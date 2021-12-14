@@ -1,0 +1,15 @@
+
+# Install helix (https://helix-editor.com).
+tap "helix-editor/helix"
+brew "helix"
+
+# Install flyctl (https://github.com/superfly/flyctl).
+brew "superfly/tap/flyctl"
+
+# Install mosh.
+brew "mosh"
+
+# Install ImageMagick.
+brew "imagemagick@6" # v6
+brew "imagemagick"   # v7
+
