@@ -1,2 +1,5 @@
 [credential]
   helper = osxkeychain
+
+[commit]
+	gpgsign = false
