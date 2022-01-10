@@ -140,7 +140,7 @@ install_dotfiles () {
   do
     dst="$HOME/.$(basename "${src%.*}")"
     link_file "$src" "$dst"
-  done <   <(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
+  done <   <(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*' -print0)
 }
 
 install_zsh_theme () {
