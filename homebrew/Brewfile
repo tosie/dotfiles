@@ -4,7 +4,8 @@ tap "helix-editor/helix"
 brew "helix", link: true
 
 # Install flyctl (https://github.com/superfly/flyctl).
-brew "superfly/tap/flyctl", link: true
+tap "superfly/tap"
+brew "flyctl", link: true
 
 # Install mosh.
 brew "mosh", link: true
