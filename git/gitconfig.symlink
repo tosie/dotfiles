@@ -31,8 +31,15 @@
 [apply]
   whitespace = nowarn
 
+[merge]
+  conflictStyle = zdiff3
+
 [mergetool]
   keepBackup = false
+
+[diff]
+  algorithm = histogram
+  colorMoved = dimmed-zebra
 
 [difftool]
   prompt = false
@@ -41,10 +48,6 @@
   autocorrect = prompt
 
 [push]
-  # See `git help config` (search for push.default)
-  # for more information on different options of the below setting.
-  #
-  # Setting to git 2.0 default to suppress warning message
   default = simple
 
 [credential]
