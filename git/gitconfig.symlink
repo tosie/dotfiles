@@ -47,6 +47,9 @@
 [help]
   autocorrect = prompt
 
+[pull]
+  rebase = false
+
 [push]
   default = simple
 
