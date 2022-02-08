@@ -1,3 +1,5 @@
+# Install git in its current version.
+brew "git", link: true
 
 # Install helix (https://helix-editor.com).
 tap "helix-editor/helix"
