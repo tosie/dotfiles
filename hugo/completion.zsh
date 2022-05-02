@@ -1,12 +1,11 @@
-# Source: flyctl version v.0.0.325
+# Source: hugo
 # Slightly modified to use compctl.
 
-compdef _flyctl flyctl
-compdef _flyctl fly
+compdef _hugo hugo
 
-# zsh completion for flyctl                               -*- shell-script -*-
+# zsh completion for hugo                                 -*- shell-script -*-
 
-__flyctl_debug()
+__hugo_debug()
 {
     local file="$BASH_COMP_DEBUG_FILE"
     if [[ -n ${file} ]]; then
@@ -14,7 +13,7 @@ __flyctl_debug()
     fi
 }
 
-_flyctl()
+_hugo()
 {
     local shellCompDirectiveError=1
     local shellCompDirectiveNoSpace=2
@@ -25,21 +24,21 @@ _flyctl()
     local lastParam lastChar flagPrefix requestComp out directive comp lastComp noSpace
     local -a completions
 
-    __flyctl_debug "\n========= starting completion logic =========="
-    __flyctl_debug "CURRENT: ${CURRENT}, words[*]: ${words[*]}"
+    __hugo_debug "\n========= starting completion logic =========="
+    __hugo_debug "CURRENT: ${CURRENT}, words[*]: ${words[*]}"
 
     # The user could have moved the cursor backwards on the command-line.
     # We need to trigger completion from the $CURRENT location, so we need
     # to truncate the command-line ($words) up to the $CURRENT location.
     # (We cannot use $CURSOR as its value does not work when a command is an alias.)
     words=("${=words[1,CURRENT]}")
-    __flyctl_debug "Truncated words[*]: ${words[*]},"
+    __hugo_debug "Truncated words[*]: ${words[*]},"
 
     lastParam=${words[-1]}
     lastChar=${lastParam[-1]}
-    __flyctl_debug "lastParam: ${lastParam}, lastChar: ${lastChar}"
+    __hugo_debug "lastParam: ${lastParam}, lastChar: ${lastChar}"
 
-    # For zsh, when completing a flag with an = (e.g., flyctl -n=<TAB>)
+    # For zsh, when completing a flag with an = (e.g., hugo -n=<TAB>)
     # completions must be prefixed with the flag
     setopt local_options BASH_REMATCH
     if [[ "${lastParam}" =~ '-.*=' ]]; then
@@ -52,22 +51,22 @@ _flyctl()
     if [ "${lastChar}" = "" ]; then
         # If the last parameter is complete (there is a space following it)
         # We add an extra empty parameter so we can indicate this to the go completion code.
-        __flyctl_debug "Adding extra empty parameter"
+        __hugo_debug "Adding extra empty parameter"
         requestComp="${requestComp} \"\""
     fi
 
-    __flyctl_debug "About to call: eval ${requestComp}"
+    __hugo_debug "About to call: eval ${requestComp}"
 
     # Use eval to handle any environment variables and such
     out=$(eval ${requestComp} 2>/dev/null)
-    __flyctl_debug "completion output: ${out}"
+    __hugo_debug "completion output: ${out}"
 
     # Extract the directive integer following a : from the last line
     local lastLine
     while IFS='\n' read -r line; do
         lastLine=${line}
     done < <(printf "%s\n" "${out[@]}")
-    __flyctl_debug "last line: ${lastLine}"
+    __hugo_debug "last line: ${lastLine}"
 
     if [ "${lastLine[1]}" = : ]; then
         directive=${lastLine[2,-1]}
@@ -77,16 +76,16 @@ _flyctl()
         out=${out[1,-$suffix]}
     else
         # There is no directive specified.  Leave $out as is.
-        __flyctl_debug "No directive found.  Setting do default"
+        __hugo_debug "No directive found.  Setting do default"
         directive=0
     fi
 
-    __flyctl_debug "directive: ${directive}"
-    __flyctl_debug "completions: ${out}"
-    __flyctl_debug "flagPrefix: ${flagPrefix}"
+    __hugo_debug "directive: ${directive}"
+    __hugo_debug "completions: ${out}"
+    __hugo_debug "flagPrefix: ${flagPrefix}"
 
     if [ $((directive & shellCompDirectiveError)) -ne 0 ]; then
-        __flyctl_debug "Completion received error. Ignoring completions."
+        __hugo_debug "Completion received error. Ignoring completions."
         return
     fi
 
@@ -101,14 +100,14 @@ _flyctl()
             local tab=$(printf '\t')
             comp=${comp//$tab/:}
 
-            __flyctl_debug "Adding completion: ${comp}"
+            __hugo_debug "Adding completion: ${comp}"
             completions+=${comp}
             lastComp=$comp
         fi
     done < <(printf "%s\n" "${out[@]}")
 
     if [ $((directive & shellCompDirectiveNoSpace)) -ne 0 ]; then
-        __flyctl_debug "Activating nospace."
+        __hugo_debug "Activating nospace."
         noSpace="-S ''"
     fi
 
@@ -125,17 +124,17 @@ _flyctl()
         done
         filteringCmd+=" ${flagPrefix}"
 
-        __flyctl_debug "File filtering command: $filteringCmd"
+        __hugo_debug "File filtering command: $filteringCmd"
         _arguments '*:filename:'"$filteringCmd"
     elif [ $((directive & shellCompDirectiveFilterDirs)) -ne 0 ]; then
         # File completion for directories only
-        local subDir
+        local subdir
         subdir="${completions[1]}"
         if [ -n "$subdir" ]; then
-            __flyctl_debug "Listing directories in $subdir"
+            __hugo_debug "Listing directories in $subdir"
             pushd "${subdir}" >/dev/null 2>&1
         else
-            __flyctl_debug "Listing directories in ."
+            __hugo_debug "Listing directories in ."
         fi
 
         local result
@@ -146,17 +145,17 @@ _flyctl()
         fi
         return $result
     else
-        __flyctl_debug "Calling _describe"
+        __hugo_debug "Calling _describe"
         if eval _describe "completions" completions $flagPrefix $noSpace; then
-            __flyctl_debug "_describe found some completions"
+            __hugo_debug "_describe found some completions"
 
             # Return the success of having called _describe
             return 0
         else
-            __flyctl_debug "_describe did not find completions."
-            __flyctl_debug "Checking if we should do file completion."
+            __hugo_debug "_describe did not find completions."
+            __hugo_debug "Checking if we should do file completion."
             if [ $((directive & shellCompDirectiveNoFileComp)) -ne 0 ]; then
-                __flyctl_debug "deactivating file completion"
+                __hugo_debug "deactivating file completion"
 
                 # We must return an error code here to let zsh know that there were no
                 # completions found by _describe; this is what will trigger other
@@ -165,7 +164,7 @@ _flyctl()
                 return 1
             else
                 # Perform file completion
-                __flyctl_debug "Activating file completion"
+                __hugo_debug "Activating file completion"
 
                 # We must return the result of this command, so it must be the
                 # last command, or else we must store its result to return it.
@@ -176,6 +175,6 @@ _flyctl()
 }
 
 # don't run the completion function when being source-ed or eval-ed
-if [ "$funcstack[1]" = "_flyctl" ]; then
-    _flyctl
+if [ "$funcstack[1]" = "_hugo" ]; then
+    _hugo
 fi
