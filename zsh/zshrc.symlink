@@ -64,7 +64,7 @@ if [[ -a ~/.powerlevel10k/powerlevel10k.zsh-theme ]]; then
   if [[ -a ~/.purepower ]]; then
     source ~/.purepower
   fi
-  
+
   source ~/.powerlevel10k/powerlevel10k.zsh-theme
 fi
 
