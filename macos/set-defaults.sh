@@ -46,3 +46,14 @@ defaults write com.apple.Safari IncludeDevelopMenu -bool true
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+
+# Enable Firefox policies so the telemetry can be configured.
+sudo defaults write /Library/Preferences/org.mozilla.firefox EnterprisePoliciesEnabled -bool TRUE
+# Disable sending usage data
+sudo defaults write /Library/Preferences/org.mozilla.firefox DisableTelemetry -bool TRUE
+
+# Disable Microsoft Office diagnostics data sending
+defaults write com.microsoft.office DiagnosticDataTypePreference -string ZeroDiagnosticData
+
+# Opt-out from Siri data collection
+defaults write com.apple.assistant.support 'Siri Data Sharing Opt-In Status' -int 2
