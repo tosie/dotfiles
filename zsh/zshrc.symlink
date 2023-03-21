@@ -38,7 +38,7 @@ do
   source $file
 done
 
-# initialize autocomplete here, otherwise functions won't be loaded
+# Initialize autocomplete here, otherwise functions won't be loaded.
 autoload -U compinit
 compinit -i
 
