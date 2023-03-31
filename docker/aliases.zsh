@@ -1,2 +1,5 @@
 alias d='docker $*'
 alias d-c='docker compose $*'
+alias dcd='docker compose down'
+alias dcu='docker compose up'
+alias dcud='docker compose up -d'
