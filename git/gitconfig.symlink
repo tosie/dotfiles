@@ -48,7 +48,7 @@
   autocorrect = prompt
 
 [pull]
-  rebase = false
+  rebase = true
 
 [push]
   default = simple
