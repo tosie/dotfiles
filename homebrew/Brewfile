@@ -21,3 +21,6 @@ brew "miniconda", link: true
 
 # Install watch
 brew "watch", link: true
+
+# Install mcfly (https://github.com/cantino/mcfly).
+brew "mcfly"", link: true
