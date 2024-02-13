@@ -24,3 +24,6 @@ brew "watch", link: true
 
 # Install mcfly (https://github.com/cantino/mcfly).
 brew "mcfly"", link: true
+
+# Install difftastic (https://difftastic.wilfred.me.uk).
+brew "difftastic", link: true

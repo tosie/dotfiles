@@ -5,10 +5,14 @@
 	gpgsign = false
 
 [diff]
-  tool = Kaleidoscope
+  tool = difftastic
+  external = difft
 
 [difftool "Kaleidoscope"]
   cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
 
 [merge]
   tool = Kaleidoscope
@@ -16,3 +20,6 @@
 [mergetool "Kaleidoscope"]
   cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
   trustExitCode = true
+
+[pager]
+  difftool = true

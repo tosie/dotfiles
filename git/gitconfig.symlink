@@ -2,12 +2,14 @@
   protocol = https
 
 [alias]
-  co = checkout
-  st = status
+  co      = checkout
+  st      = status
   promote = !$ZSH/bin/git-promote
   wtf     = !$ZSH/bin/git-wtf
   rank-contributors = !$ZSH/bin/git-rank-contributors
   count   = !git shortlog -sn
+  dft     = difftool
+  dlog    = git log -p --ext-diff
   
   # Source for lg aliases: https://stackoverflow.com/a/34467298
   lg = lg1
