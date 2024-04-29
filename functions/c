@@ -1,4 +1,5 @@
 #!/bin/zsh
+# shellcheck disable=SC1071
 #
 # This lets you quickly jump into a project directory.
 #
