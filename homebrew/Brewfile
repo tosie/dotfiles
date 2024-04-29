@@ -31,3 +31,6 @@ brew "difftastic", link: true
 # Install mise (https://github.com/jdx/mise) and "Usage CLI" (https://usage.jdx.dev/cli/).
 brew "mise", link: true
 brew "jdx/tap/usage", link: true
+
+# Install lnav (https://lnav.org)
+brew "lnav", link: true
