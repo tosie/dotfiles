@@ -1,4 +1,4 @@
-if test "$(which brew)"
+if test "$(which mise)"
 then
   eval "$(mise activate zsh)"
   eval "$(mise hook-env -s zsh)"
