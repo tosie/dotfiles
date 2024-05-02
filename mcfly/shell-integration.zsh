@@ -1,7 +1,7 @@
 # Documentation: https://github.com/cantino/mcfly
 
 if [[ -o interactive ]]; then
-  if test "$(which mcfly)"
+  if command -v mcfly &> /dev/null
   then
     # export MCFLY_LIGHT=TRUE
     # export MCFLY_KEY_SCHEME=vim

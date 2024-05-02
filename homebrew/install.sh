@@ -9,7 +9,7 @@ parentDirectory="$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd -P)"
 dotfilesDirectory="$(cd "$( dirname "$parentDirectory" )" && pwd -P)"
 
 # Check for Homebrew
-if test ! "$(which brew)"
+if ! command -v brew &> /dev/null
 then
   echo "  Installing Homebrew for you."
 
@@ -26,7 +26,7 @@ then
   fi
 fi
 
-if test "$(which brew)"
+if command -v brew &> /dev/null
 then
   echo "  Using Brewfile to install applications."
   brew bundle --file "$dotfilesDirectory/homebrew/Brewfile"

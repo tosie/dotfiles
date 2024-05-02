@@ -6,7 +6,7 @@
 parentDirectory="$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd -P)"
 dotfilesDirectory="$(cd "$( dirname "$parentDirectory" )" && pwd -P)"
 
-if test ! "$(which pacman)"
+if ! command -v pacman &> /dev/null
 then
   exit 0
 fi

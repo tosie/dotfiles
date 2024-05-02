@@ -43,7 +43,7 @@ export ZSH=$HOME/.dotfiles
 # Set macOS defaults
 "$ZSH/macos/set-defaults.sh"
 
-if test "$(which brew)"
+if command -v brew &> /dev/null
 then
 	# Upgrade Homebrew.
 	echo "› brew update"
