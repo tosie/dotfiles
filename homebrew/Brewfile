@@ -34,3 +34,9 @@ brew "jdx/tap/usage", link: true
 
 # Install lnav (https://lnav.org)
 brew "lnav", link: true
+
+# Install ncdu (https://dev.yorhel.nl/ncdu)
+brew "ncdu", link: true
+
+# Install btop (https://github.com/aristocratos/btop)
+brew "btop", link: true
