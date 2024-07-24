@@ -46,3 +46,6 @@ brew "lazygit", link: true
 
 # Install act (https://github.com/nektos/act)
 brew "act", link: true
+
+# Install jujutsu (`jj`) (https://github.com/martinvonz/jj)
+brew "jj", link: true
