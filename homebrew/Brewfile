@@ -49,3 +49,6 @@ brew "act", link: true
 
 # Install jujutsu (`jj`) (https://github.com/martinvonz/jj)
 brew "jj", link: true
+
+# Install glow (https://github.com/charmbracelet/glow)
+brew "glow", link: true
