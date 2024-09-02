@@ -11,7 +11,7 @@ then
   exit 0
 fi
 
-aptOptions="--no-install-recommends --assume-yes --show-upgraded --show-progress"
+aptOptions="--no-install-recommends --assume-yes --show-upgraded"
 
 echo "  Synchronizing the apt package databases and installing common packages"
 # shellcheck disable=SC2086
