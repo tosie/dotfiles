@@ -52,3 +52,6 @@ brew "jj", link: true
 
 # Install glow (https://github.com/charmbracelet/glow)
 brew "glow", link: true
+
+# Install nnn.
+brew "nnn", link: true

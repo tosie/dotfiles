@@ -12,7 +12,7 @@ then
 fi
 
 echo "  Synchronizing the pacman package databases and installing common packages"
-sudo pacman -Syu --noconfirm --needed pacman-contrib vim sudo mosh tmux wget bash-completion helix mcfly lnav ncdu btop
+sudo pacman -Syu --noconfirm --needed pacman-contrib vim sudo mosh tmux wget bash-completion helix mcfly lnav ncdu btop lazygit glow nnn
 
 # Install rmate.
 if test ! "/usr/local/bin/rmate"
