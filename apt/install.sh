@@ -14,10 +14,10 @@ fi
 aptOptions="--no-install-recommends --assume-yes --show-upgraded --show-progress"
 
 echo "  Synchronizing the apt package databases and installing common packages"
-sudo apt-get "$aptOptions" update \
-  && apt-get "$aptOptions" install vim sudo mosh tmux wget bash-completion helix mcfly lnav ncdu btop lazygit glow nnn \
-  && apt-get "$aptOptions" upgrade \
-  && apt-get "$aptOptions" autoremove
+sudo apt-get $aptOptions update \
+  && apt-get $aptOptions install vim sudo mosh tmux wget bash-completion helix mcfly lnav ncdu btop lazygit glow nnn \
+  && apt-get $aptOptions upgrade \
+  && apt-get $aptOptions autoremove
 
 # Install rmate.
 if test ! "/usr/local/bin/rmate"
