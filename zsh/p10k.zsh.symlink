@@ -1728,13 +1728,25 @@
 function prompt_mise() {
   local plugins=("${(@f)$(mise current 2>/dev/null)}")
   local plugin
+  local counter=1
   for plugin in ${(k)plugins}; do
+    # Do not add more than some segments.
+    if [ $counter -gt 5 ]; then
+      break;
+    fi
+
     local parts=("${(@s/ /)plugin}")
     local tool=${(U)parts[1]}
     local version=${parts[2]}
 
+    # mise supports "namespaces" when declaring tool versions (prefixes separated by a colon from the actual tool name).
+    # To prevent problems using a ":" in the variable values, we just remove everything up to the last colon in the tool name.
+    tool=${tool#*:}
+
     _p9k_get_icon prompt_mise_$tool ${tool}_ICON $plugin
     _p9k_prompt_segment prompt_mise_$tool green $_p9k_color1 $'\1'$_p9k__ret 0 '' ${version//\%/%%}
+
+    ((counter++))
   done
 }
 
