@@ -11,15 +11,6 @@ then
   exit 0
 fi
 
-aptOptions="--no-install-recommends --assume-yes --show-upgraded"
-
-echo "  Synchronizing the apt package databases and installing common packages"
-# shellcheck disable=SC2086
-sudo apt-get $aptOptions update \
-  && sudo apt-get $aptOptions install vim sudo mosh tmux wget bash-completion lnav ncdu btop nnn \
-  && sudo apt-get $aptOptions upgrade \
-  && sudo apt-get $aptOptions autoremove
-
 # Install rmate.
 if test ! "/usr/local/bin/rmate"
 then
@@ -27,5 +18,14 @@ then
   cp "$dotfilesDirectory/rmate" "/usr/local/bin/rmate"
   chmod a+x /usr/local/bin/rmate
 fi
+
+aptOptions="--no-install-recommends --assume-yes --show-upgraded"
+
+echo "  Synchronizing the apt package databases and installing common packages"
+# shellcheck disable=SC2086
+sudo apt-get $aptOptions update \
+  && sudo apt-get $aptOptions install vim sudo mosh tmux wget bash-completion lnav ncdu btop nnn fastfetch \
+  && sudo apt-get $aptOptions upgrade \
+  && sudo apt-get $aptOptions autoremove
 
 exit 0

@@ -55,3 +55,6 @@ brew "glow", link: true
 
 # Install nnn.
 brew "nnn", link: true
+
+# Install fastfetch.
+brew "fastfetch", link: true
