@@ -4,12 +4,13 @@
 
 parentDirectory="$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd -P)"
 dotfilesDirectory="$(cd "$( dirname "$parentDirectory" )" && pwd -P)"
-configDirectory="${XDG_CONFIG_HOME}/fastfetch"
+configDirectory="${XDG_CONFIG_HOME:-$HOME/.config}/fastfetch"
 
 # Symlink the fastfetch configuration directory to the dotfiles directory.
 if [ ! -d "$configDirectory" ]; then
-  ln -s "$dotfilesDirectory/fastfetch" "$configDirectory"
-  echo "  Symlinked the fastfetch configuration directory to the dotfiles directory"
+  if ln -s "$dotfilesDirectory/fastfetch" "$configDirectory"; then
+    echo "  Symlinked the fastfetch configuration directory to the dotfiles directory"
+  fi
 fi
 
 exit 0
