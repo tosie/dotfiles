@@ -1738,15 +1738,23 @@ function prompt_mise() {
     local parts=("${(@s/ /)plugin}")
     local tool=${(U)parts[1]}
     local version=${parts[2]}
-
+    
     # mise supports "namespaces" when declaring tool versions (prefixes separated by a colon from the actual tool name).
     # To prevent problems using a ":" in the variable values, we just remove everything up to the last colon in the tool name.
-    tool=${tool#*:}
+    tool=${tool##*:}
 
-    _p9k_get_icon prompt_mise_$tool ${tool}_ICON $plugin
-    _p9k_prompt_segment prompt_mise_$tool green $_p9k_color1 $'\1'$_p9k__ret 0 '' ${version//\%/%%}
+    # mise supports "paths" in tool names (e.g. "go:github.com/sibprogrammer/xq").
+    tool=${tool##*/}
 
-    ((counter++))
+    # Test if the value of `${tool}` is contained in the list `"usage"`, `"jq"`.
+    if [[ "-USAGE-JQ-XQ-YARN-UV-CLI-" =~ -${tool}- ]]; then
+      # Ignore these tools ...
+    else
+      _p9k_get_icon prompt_mise_$tool ${tool}_ICON $plugin
+      _p9k_prompt_segment prompt_mise_$tool green $_p9k_color1 $'\1'$_p9k__ret 0 '' ${version//\%/%%}
+
+      ((counter++))
+    fi
   done
 }
 
