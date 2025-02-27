@@ -1,5 +1,7 @@
 # Set the terminal language and encoding.
 export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTS-8
+export LC_ALL=en_US.UTF-8
 
 if [[ "$TERM_PROGRAM" != "vscode" ]] && command -v fastfetch &> /dev/null
 then
