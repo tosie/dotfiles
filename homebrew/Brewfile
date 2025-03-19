@@ -58,3 +58,6 @@ brew "nnn", link: true
 
 # Install fastfetch.
 brew "fastfetch", link: true
+
+# Install git-who (https://github.com/sinclairtarget/git-who).
+brew "git-who", link: true
