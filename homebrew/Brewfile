@@ -16,9 +16,6 @@ brew "mosh", link: true
 brew "imagemagick@6" # v6
 brew "imagemagick"   # v7
 
-# Install miniconda.
-brew "miniconda", link: true
-
 # Install watch
 brew "watch", link: true
 
