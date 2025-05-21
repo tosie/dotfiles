@@ -82,3 +82,9 @@
 # Local/private config goes in the include
 [include]
   path = .gitconfig.local
+
+[gitbutler]
+	aiModelProvider = ollama
+	aiOpenAIKeyOption = butlerAPI
+	aiOpenAIModelName = gpt-3.5-turbo
+	aiOllamaModelName = llama3.2
