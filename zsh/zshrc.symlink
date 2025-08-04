@@ -5,7 +5,8 @@ export LC_ALL=en_US.UTF-8
 
 if [[ "$TERM_PROGRAM" != "vscode" ]] && command -v fastfetch &> /dev/null
 then
-  fastfetch
+  # Running fastfetch on every new terminal session seems too much.
+  # fastfetch
 fi
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
