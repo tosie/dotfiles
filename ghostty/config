@@ -1,2 +1,5 @@
 font-family = "Berkeley Mono Variable"
-theme = light:Monokai Pro,dark:Monokai Pro Light Sun
+#theme = light:Monokai Pro,dark:Monokai Pro Light Sun
+shell-integration-features = ssh-env
+auto-update-channel = tip
+
