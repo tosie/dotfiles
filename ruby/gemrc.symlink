@@ -1,4 +1,7 @@
 --- 
+:sources:
+- https://devicebot:.U.BFXaXwMlJT.A@gems.ts-it.de
+- https://rubygems.org/
 :update_sources: true
 :verbose: true
 :backtrace: false
