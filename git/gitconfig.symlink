@@ -1115,6 +1115,7 @@
 [core]
   excludesfile = ~/.gitignore
   editor = $EDITOR -w
+  sshCommand = ssh -o ClearAllForwardings=yes
 
 [apply]
   whitespace = nowarn
