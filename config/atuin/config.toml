@@ -1,0 +1,4 @@
+# Local history. Sync is off until you register or set sync_address yourself.
+# Do not put an encryption key or a login token in this file.
+search_mode = "fuzzy"
+enter_accept = true

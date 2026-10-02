@@ -1,0 +1,4 @@
+{%- set hypr = exec(command="sh -c 'command -v Hyprland >/dev/null 2>&1 && printf yes || true'") | trim -%}
+{%- if hypr == "yes" -%}
+async-backend = epoll
+{%- endif -%}

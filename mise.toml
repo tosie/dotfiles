@@ -1,0 +1,149 @@
+# One installer for macOS, Linux, and Windows. Run `mise bootstrap` on every
+# machine. Fish activation is inside config/fish/config.fish, so this file
+# does not set [bootstrap.mise_shell_activate].
+
+[bootstrap.packages]
+# Shared tools. Each manager is limited to the OS where that package name exists.
+"brew:fish" = { os = "macos" }
+"apt:fish" = { os = "linux" }
+"pacman:fish" = { os = "linux" }
+"brew:starship" = { os = "macos" }
+"apt:starship" = { os = "linux" }
+"pacman:starship" = { os = "linux" }
+"winget:Starship.Starship" = { os = "windows" }
+"brew:neovim" = { os = "macos" }
+"apt:neovim" = { os = "linux" }
+"pacman:neovim" = { os = "linux" }
+"winget:Neovim.Neovim" = { os = "windows" }
+"brew:git" = { os = "macos" }
+"apt:git" = { os = "linux" }
+"pacman:git" = { os = "linux" }
+"winget:Git.Git" = { os = "windows" }
+"brew:mise" = { os = "macos" }
+"apt:mise" = { os = "linux" }
+"pacman:mise" = { os = "linux" }
+"winget:jdx.mise" = { os = "windows" }
+"brew:atuin" = { os = "macos" }
+"apt:atuin" = { os = "linux" }
+"pacman:atuin" = { os = "linux" }
+"winget:Atuinsh.Atuin" = { os = "windows" }
+"brew:tmux" = { os = "macos" }
+"apt:tmux" = { os = "linux" }
+"pacman:tmux" = { os = "linux" }
+"brew:difftastic" = { os = "macos" }
+"apt:difftastic" = { os = "linux" }
+"pacman:difftastic" = { os = "linux" }
+"winget:Wilfred.difftastic" = { os = "windows" }
+"brew:lazygit" = { os = "macos" }
+"apt:lazygit" = { os = "linux" }
+"pacman:lazygit" = { os = "linux" }
+"winget:JesseDuffield.lazygit" = { os = "windows" }
+"brew:fastfetch" = { os = "macos" }
+"apt:fastfetch" = { os = "linux" }
+"pacman:fastfetch" = { os = "linux" }
+"winget:Fastfetch-cli.Fastfetch" = { os = "windows" }
+"brew:btop" = { os = "macos" }
+"apt:btop" = { os = "linux" }
+"pacman:btop" = { os = "linux" }
+"winget:aristocratos.btop4win" = { os = "windows" }
+"brew:glow" = { os = "macos" }
+"apt:glow" = { os = "linux" }
+"pacman:glow" = { os = "linux" }
+"winget:charmbracelet.glow" = { os = "windows" }
+"brew:superfly/tap/flyctl" = { os = "macos" }
+"apt:flyctl" = { os = "linux" }
+"winget:Fly-io.flyctl" = { os = "windows" }
+"brew:watch" = { os = "macos" }
+"apt:watch" = { os = "linux" }
+
+# Unix only. No Windows package, or no useful port.
+"brew:mosh" = { os = "macos" }
+"apt:mosh" = { os = "linux" }
+"pacman:mosh" = { os = "linux" }
+"brew:nnn" = { os = "macos" }
+"apt:nnn" = { os = "linux" }
+"pacman:nnn" = { os = "linux" }
+"brew:ncdu" = { os = "macos" }
+"apt:ncdu" = { os = "linux" }
+"pacman:ncdu" = { os = "linux" }
+"brew:lnav" = { os = "macos" }
+"apt:lnav" = { os = "linux" }
+"pacman:lnav" = { os = "linux" }
+"brew-cask:ghostty" = { os = "macos" }
+"apt:ghostty" = { os = "linux" }
+"pacman:ghostty" = { os = "linux" }
+
+# Names that exist in Homebrew and not as apt, pacman, or winget packages.
+"brew:git-who" = { os = "macos" }
+"brew:jdx/tap/usage" = { os = "macos" }
+
+# The previous apt and pacman lists, minus Helix, McFly, act, and jj.
+"apt:vim" = { os = "linux" }
+"pacman:vim" = { os = "linux" }
+"apt:sudo" = { os = "linux" }
+"pacman:sudo" = { os = "linux" }
+"apt:wget" = { os = "linux" }
+"pacman:wget" = { os = "linux" }
+"apt:bash-completion" = { os = "linux" }
+"pacman:bash-completion" = { os = "linux" }
+"pacman:pacman-contrib" = { os = "linux" }
+
+[bootstrap.macos.defaults."com.apple.Finder"]
+FXPreferredViewStyle = "Nlsv"
+
+[bootstrap.macos.defaults.NSGlobalDomain]
+KeyRepeat = 1
+WebKitDeveloperExtras = true
+
+[bootstrap.macos.defaults."com.apple.finder"]
+ShowExternalHardDrivesOnDesktop = true
+ShowRemovableMediaOnDesktop = true
+
+[bootstrap.macos.defaults."com.apple.dock"]
+wvous-br-corner = 5
+wvous-br-modifier = 0
+
+[bootstrap.macos.defaults."com.apple.Safari"]
+IncludeInternalDebugMenu = true
+IncludeDevelopMenu = true
+WebKitDeveloperExtrasEnabledPreferenceKey = true
+"com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" = true
+
+[bootstrap.macos.defaults."com.microsoft.office"]
+DiagnosticDataTypePreference = "ZeroDiagnosticData"
+
+[bootstrap.macos.defaults."com.apple.assistant.support"]
+"Siri Data Sharing Opt-In Status" = 2
+
+[bootstrap.hooks]
+post-defaults = "{% if os() == 'macos' %}chflags nohidden \"$HOME/Library\" && sudo defaults write /Library/Preferences/org.mozilla.firefox EnterprisePoliciesEnabled -bool TRUE && sudo defaults write /Library/Preferences/org.mozilla.firefox DisableTelemetry -bool TRUE{% else %}true{% endif %}"
+
+[dotfiles]
+"~/.config/fish/config.fish" = "config/fish/config.fish"
+"~/.config/fish/iterm2_shell_integration.fish" = "config/fish/iterm2_shell_integration.fish"
+"~/.config/fish/conf.d" = { source = "config/fish/conf.d", mode = "symlink-each" }
+"~/.config/fish/functions" = { source = "config/fish/functions", mode = "symlink-each" }
+"~/.config/starship.toml" = "config/starship.toml"
+"~/.config/atuin/config.toml" = "config/atuin/config.toml"
+"~/.config/fastfetch/config.jsonc" = "config/fastfetch/config.jsonc"
+"~/.config/tmux/tmux.conf" = "config/tmux/tmux.conf"
+"~/.config/git/config" = "config/git/config"
+"~/.config/git/ignore" = "config/git/ignore"
+"~/.config/git/config-macos" = "config/git/config-macos"
+"~/.config/git/config-linux" = "config/git/config-linux"
+"~/.config/git/config-windows" = "config/git/config-windows"
+"~/.config/git/local.example" = "config/git/local.example"
+"~/.config/nvim" = { source = "config/nvim", mode = "symlink" }
+"~/.gemrc" = "config/ruby/gemrc"
+"~/.irbrc" = "config/ruby/irbrc"
+"~/.local/bin" = { source = "bin", mode = "symlink-each" }
+"~/.config/ghostty/config" = { source = "config/ghostty/config", mode = "symlink", variants = [{ os = "unix" }] }
+"~/.config/ghostty/config.d/hyprland" = { source = "config/ghostty/config.d/hyprland.tera", mode = "template", variants = [{ os = "unix" }] }
+"~/.zshrc" = { mode = "absent" }
+"~/.zprofile" = { mode = "absent" }
+"~/.p10k.zsh" = { mode = "absent" }
+"~/.vimrc" = { mode = "absent" }
+"~/.gitconfig" = { mode = "absent" }
+"~/.gitignore" = { mode = "absent" }
+"~/.tmux.conf" = { mode = "absent" }
+"~/.localrc" = { mode = "absent" }

@@ -1,0 +1,12 @@
+font-family = "Berkeley Mono Variable"
+#theme = light:Monokai Pro,dark:Monokai Pro Light Sun
+shell-integration-features = ssh-env
+auto-update-channel = tip
+
+# Rendered by mise. Missing or empty when Hyprland is not installed.
+config-file = ?config.d/hyprland
+
+# Portable keybinds. Shift+Enter is CSI-u so a TUI can tell it from Enter.
+keybind = shift+insert=paste_from_clipboard
+keybind = control+insert=copy_to_clipboard
+keybind = shift+enter=csi:13;2u
