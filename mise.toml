@@ -77,7 +77,6 @@
 "brew:git-who" = { os = "macos" }
 "brew:jdx/tap/usage" = { os = "macos" }
 
-# The previous apt and pacman lists, minus Helix, McFly, act, and jj.
 "apt:vim" = { os = "linux" }
 "pacman:vim" = { os = "linux" }
 "apt:sudo" = { os = "linux" }
