@@ -23,9 +23,6 @@
 "apt:watch" = { os = "linux" }
 
 # Unix only. No Windows package, or no useful port.
-"brew:mosh" = { os = "macos" }
-"apt:mosh" = { os = "linux" }
-"pacman:mosh" = { os = "linux" }
 "brew:nnn" = { os = "macos" }
 "apt:nnn" = { os = "linux" }
 "pacman:nnn" = { os = "linux" }

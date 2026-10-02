@@ -46,7 +46,7 @@ Mise registry tools: atuin, difftastic, fastfetch, flyctl, glow, lazygit, neovim
 
 The rest are system packages, with Homebrew on macOS, apt or pacman on Linux, and winget on Windows, where that package exists. Apt names match Debian. An older Ubuntu release may not ship every one of them yet.
 
-System packages: fish (not winget), git, mise, btop, and watch (Homebrew and apt). Unix only: mosh, nnn, ncdu, lnav, and Ghostty.
+System packages: fish (not winget), git, mise, btop, and watch (Homebrew and apt). Unix only: nnn, ncdu, lnav, and Ghostty.
 
 macOS only: Homebrew `shellenv` with analytics off, Kaleidoscope and difftastic in the macOS git include, Postgres.app on `PATH` when that app is installed, and the macOS defaults from the old `macos/set-defaults.sh`.
 
