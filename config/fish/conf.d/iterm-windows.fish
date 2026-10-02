@@ -51,4 +51,10 @@ if test "$OS" = Windows_NT
     function it2universion --wraps it2universion
         __iterm_run it2universion $argv
     end
+    function pbcopy --wraps pbcopy
+        __iterm_run pbcopy $argv
+    end
+    function rmate --wraps rmate
+        __iterm_run rmate $argv
+    end
 end

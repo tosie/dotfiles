@@ -33,7 +33,8 @@ Fish is not in winget. On Windows, install fish from [fishshell.com](https://fis
 | `config/git/` | `~/.config/git/` |
 | `config/nvim/` | `~/.config/nvim` |
 | `config/ruby/gemrc`, `irbrc` | `~/.gemrc`, `~/.irbrc` |
-| `bin/it2*`, `imgcat`, `imgls` | `~/.local/bin` |
+| `bin/it2*`, `imgcat`, `imgls`, `rmate` | `~/.local/bin` |
+| `bin/pbcopy` | `~/.local/bin` on Linux and Windows |
 
 `config/fish/config.fish` contains `mise activate fish | source`. Do not also set `[bootstrap.mise_shell_activate]` for fish. Mise skips that generated block when this file already owns the path.
 
@@ -71,7 +72,7 @@ On Omarchy, `theme.lua` loads `~/.local/state/omarchy/current/theme/neovim.lua` 
 
 ## iTerm
 
-`imgcat`, `imgls`, and `it2*` are on `PATH` everywhere. They print iTerm escape sequences, so they display when you SSH in from iTerm on macOS. On Windows, fish runs them with `bash.exe` from Git for Windows. The iTerm app itself is not installed on Linux or Windows. Fish also loads iTerm's shell integration so prompt marks work over that SSH session.
+`imgcat`, `imgls`, `it2*`, and `rmate` are on `PATH` everywhere. The image and `it2*` scripts print iTerm escape sequences, so they display when you SSH in from iTerm on macOS. `rmate` opens a file in an rmate listener on the machine you SSH from. `pbcopy` is the same clipboard script as `it2copy` and is installed on Linux and Windows, which is what tmux copy mode calls. On macOS the system `pbcopy` stays on `PATH`. On Windows, fish runs these scripts with `bash.exe` from Git for Windows. The iTerm app itself is not installed on Linux or Windows. Fish also loads iTerm's shell integration so prompt marks work over that SSH session.
 
 ## Ghostty and Hyprland
 

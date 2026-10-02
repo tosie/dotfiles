@@ -136,7 +136,8 @@ post-defaults = "{% if os() == 'macos' %}chflags nohidden \"$HOME/Library\" && s
 "~/.config/nvim" = { source = "config/nvim", mode = "symlink" }
 "~/.gemrc" = "config/ruby/gemrc"
 "~/.irbrc" = "config/ruby/irbrc"
-"~/.local/bin" = { source = "bin", mode = "symlink-each" }
+"~/.local/bin" = { source = "bin", mode = "symlink-each", exclude = ["pbcopy"] }
+"~/.local/bin/pbcopy" = { source = "bin/pbcopy", mode = "symlink", variants = [{ os = "linux" }, { os = "windows" }] }
 "~/.config/ghostty/config" = { source = "config/ghostty/config", mode = "symlink", variants = [{ os = "unix" }] }
 "~/.config/ghostty/config.d/hyprland" = { source = "config/ghostty/config.d/hyprland.tera", mode = "template", variants = [{ os = "unix" }] }
 "~/.zshrc" = { mode = "absent" }
