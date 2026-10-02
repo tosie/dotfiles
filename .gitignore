@@ -1,2 +1,2 @@
-git/gitconfig.local.symlink
-homebrew/Brewfile.lock.json
+config/git/local
+config/nvim/lazy-lock.json
