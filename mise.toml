@@ -77,8 +77,26 @@ DiagnosticDataTypePreference = "ZeroDiagnosticData"
 [bootstrap.macos.defaults."com.apple.assistant.support"]
 "Siri Data Sharing Opt-In Status" = 2
 
+# Fish's path differs by OS and Homebrew prefix, so the login shell is a hook
+# rather than [bootstrap.user].login_shell, which needs one absolute path.
 [bootstrap.hooks]
-post-defaults = "{% if os() == 'macos' %}chflags nohidden \"$HOME/Library\" && sudo defaults write /Library/Preferences/org.mozilla.firefox EnterprisePoliciesEnabled -bool TRUE && sudo defaults write /Library/Preferences/org.mozilla.firefox DisableTelemetry -bool TRUE{% else %}true{% endif %}"
+post-defaults = """
+{% if os() == "macos" %}
+case $(stat -f %Sf "$HOME/Library") in
+  *hidden*) chflags nohidden "$HOME/Library" ;;
+esac
+domain=/Library/Preferences/org.mozilla.firefox
+if ! defaults read "$domain" EnterprisePoliciesEnabled >/dev/null 2>&1; then
+  sudo defaults write "$domain" EnterprisePoliciesEnabled -bool TRUE
+fi
+if ! defaults read "$domain" DisableTelemetry >/dev/null 2>&1; then
+  sudo defaults write "$domain" DisableTelemetry -bool TRUE
+fi
+{% else %}
+true
+{% endif %}
+"""
+final = "bash \"{{ config_root }}/script/set-fish-login-shell\""
 
 [dotfiles]
 "~/.config/fish/config.fish" = "config/fish/config.fish"

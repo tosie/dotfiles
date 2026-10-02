@@ -14,13 +14,15 @@ mise bootstrap
 
 `mise bootstrap` is the same command on every machine. When the `Hyprland` binary is installed, the Ghostty config gains `async-backend = epoll`. After you install Hyprland later, run `mise bootstrap` again. This repo does not install a desktop.
 
-`mise bootstrap` finishes by running the `bootstrap` task, which sets fish as the login shell on macOS and Linux. It adds that fish binary to `/etc/shells` when it is missing, then runs `chsh`. Both steps can ask for your password. When fish is already the login shell, the task does nothing. On Windows it reminds you to set the Windows Terminal profile. `mise run bootstrap` runs only that step. A dry run does not. `mise bootstrap remote` does not target native Windows SSH, so run bootstrap on the machine itself.
+`mise bootstrap` finishes with a final hook that sets fish as the login shell on macOS and Linux. It adds that fish binary to `/etc/shells` when it is missing, then runs `chsh`. Both steps can ask for your password. When fish is already the login shell, the hook does nothing. On Windows it reminds you to set the Windows Terminal profile. A dry run prints the hook and does not run it. `mise bootstrap remote` does not target native Windows SSH, so run bootstrap on the machine itself.
+
+On macOS, the post-defaults hook unhides `~/Library` only while that folder is hidden. It writes the Firefox enterprise policy keys only when those keys are not set yet, and leaves an existing value alone.
 
 Fish is not in winget. On Windows, install fish from [fishshell.com](https://fishshell.com/) before the fish config is useful. The other Windows tools come from winget.
 
 ## Layout
 
-`mise.toml` is the installer. It declares packages, links, the Hyprland Ghostty template, and macOS defaults.
+`mise.toml` is the installer. It declares packages, links, the Hyprland Ghostty template, macOS defaults, and the bootstrap hooks.
 
 | Path | Lands on |
 | --- | --- |
