@@ -55,15 +55,31 @@ case "$(uname -s)" in
     ;;
 esac
 
-if [ "$current" = "$fish_bin" ]; then
-  echo "Login shell is already $fish_bin."
+# chsh stores one path, and a later lookup may be a symlink to that same fish.
+# A second bootstrap must not ask for a password again.
+if [ -n "$current" ] && { [ "$current" = "$fish_bin" ] || [ "$current" -ef "$fish_bin" ] || [ "$(basename "$current")" = "fish" ]; }; then
+  echo "Login shell is already fish ($current)."
   exit 0
 fi
 
-if [ ! -r /etc/shells ] || ! grep -qxF "$fish_bin" /etc/shells; then
-  echo "Adding $fish_bin to /etc/shells."
-  printf '%s\n' "$fish_bin" | sudo tee -a /etc/shells >/dev/null
+# Prefer a path already approved in /etc/shells so a repeat run does not append.
+shell_path="$fish_bin"
+if [ -r /etc/shells ]; then
+  while IFS= read -r listed || [ -n "$listed" ]; do
+    case "$listed" in
+      '' | \#*) continue ;;
+    esac
+    if [ "$listed" = "$fish_bin" ] || [ "$listed" -ef "$fish_bin" ]; then
+      shell_path="$listed"
+      break
+    fi
+  done < /etc/shells
 fi
 
-chsh -s "$fish_bin"
-echo "Login shell set to $fish_bin. Open a new terminal to use it."
+if [ ! -r /etc/shells ] || ! grep -qxF "$shell_path" /etc/shells; then
+  echo "Adding $shell_path to /etc/shells."
+  printf '%s\n' "$shell_path" | sudo tee -a /etc/shells >/dev/null
+fi
+
+chsh -s "$shell_path"
+echo "Login shell set to $shell_path. Open a new terminal to use it."
