@@ -44,11 +44,11 @@ An old `~/.gitconfig`, `~/.zshrc`, `~/.zprofile`, `~/.p10k.zsh`, `~/.vimrc`, `~/
 
 Installed with Homebrew on macOS, apt or pacman on Linux, and winget on Windows, where that package exists. Apt names match Debian. An older Ubuntu release may not ship every one of them yet.
 
-Shared: fish (not winget), starship, neovim, git, mise, atuin, tmux (not winget), difftastic, lazygit, fastfetch, btop, glow, flyctl (not pacman), watch (Homebrew and apt).
+Shared: fish (not winget), starship, neovim, git, mise, atuin, tmux (not winget), difftastic, lazygit, fastfetch, btop, glow, flyctl (not pacman), watch (Homebrew and apt). `usage` is a mise tool (`usage = "latest"`), so it is installed on every platform.
 
 Unix only: mosh, nnn, ncdu, lnav, Ghostty.
 
-macOS only: `git-who`, the `usage` CLI, Homebrew `shellenv` with analytics off, Kaleidoscope and difftastic in the macOS git include, Postgres.app on `PATH` when that app is installed, and the macOS defaults from the old `macos/set-defaults.sh`.
+macOS only: `git-who`, Homebrew `shellenv` with analytics off, Kaleidoscope and difftastic in the macOS git include, Postgres.app on `PATH` when that app is installed, and the macOS defaults from the old `macos/set-defaults.sh`.
 
 Windows does not get Ghostty, iTerm, Postgres.app, Kaleidoscope, or Homebrew. The iTerm helper scripts are still installed.
 

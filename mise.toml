@@ -75,7 +75,6 @@
 
 # Names that exist in Homebrew and not as apt, pacman, or winget packages.
 "brew:git-who" = { os = "macos" }
-"brew:usage" = { os = "macos" }
 
 "apt:vim" = { os = "linux" }
 "pacman:vim" = { os = "linux" }
@@ -86,6 +85,9 @@
 "apt:bash-completion" = { os = "linux" }
 "pacman:bash-completion" = { os = "linux" }
 "pacman:pacman-contrib" = { os = "linux" }
+
+[tools]
+usage = "latest"
 
 [bootstrap.macos.defaults."com.apple.Finder"]
 FXPreferredViewStyle = "Nlsv"
