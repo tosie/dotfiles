@@ -24,7 +24,7 @@ Fish is not in winget. On Windows, install fish from [fishshell.com](https://fis
 
 | Path | Lands on |
 | --- | --- |
-| `config/fish/` | `~/.config/fish/` (`conf.d` and `functions` are linked file by file, so a local file next to them is left alone) |
+| `config/fish/` | `~/.config/fish/` (`conf.d`, `functions`, and `completions` are linked file by file, so a local file next to them is left alone) |
 | `config/starship.toml` | `~/.config/starship.toml` |
 | `config/atuin/config.toml` | `~/.config/atuin/config.toml` |
 | `config/ghostty/` | `~/.config/ghostty/` on macOS and Linux |
@@ -58,7 +58,7 @@ Fish is the interactive shell. Starship is the prompt (the same `starship.toml` 
 
 Atuin starts offline. To sync later, run `atuin register` for the hosted service, or set `sync_address` in `~/.config/atuin/config.toml` for a server you run. Leave it unset to stay local. The encryption key (`~/.local/share/atuin/key`) and the session token stay on the machine. Import existing history once, yourself, with `atuin import auto`.
 
-`c` jumps into `~/Developer`. `tm` attaches the tmux session named `main`. `n` opens Neovim, and opens the current directory when called with no arguments. Docker keeps `d`, `d-c`, `dcd`, `dcu`, and `dcud`. Ruby keeps `be` and `ber`.
+`c` jumps into `~/Developer`. Tab completes directories under that folder, one component at a time, so `c so` becomes `c some/` and `c some/pro` becomes `c some/project/`. `tm` attaches the tmux session named `main`. `n` opens Neovim, and opens the current directory when called with no arguments. Docker keeps `d`, `d-c`, `dcd`, `dcu`, and `dcud`. Ruby keeps `be` and `ber`.
 
 ## Git
 

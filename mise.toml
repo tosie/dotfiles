@@ -85,6 +85,7 @@ post-defaults = "{% if os() == 'macos' %}chflags nohidden \"$HOME/Library\" && s
 "~/.config/fish/iterm2_shell_integration.fish" = "config/fish/iterm2_shell_integration.fish"
 "~/.config/fish/conf.d" = { source = "config/fish/conf.d", mode = "symlink-each" }
 "~/.config/fish/functions" = { source = "config/fish/functions", mode = "symlink-each" }
+"~/.config/fish/completions" = { source = "config/fish/completions", mode = "symlink-each" }
 "~/.config/starship.toml" = "config/starship.toml"
 "~/.config/atuin/config.toml" = "config/atuin/config.toml"
 "~/.config/fastfetch" = "config/fastfetch"
