@@ -76,4 +76,4 @@ On Omarchy, `theme.lua` loads `~/.local/state/omarchy/current/theme/neovim.lua` 
 
 ## Ghostty and Hyprland
 
-The main Ghostty config is the previous four-line file plus clipboard binds and Shift+Enter as CSI-u. `config/ghostty/config.d/hyprland.tera` is rendered to `~/.config/ghostty/config.d/hyprland`. The render runs `command -v Hyprland`. When that binary is present the file contains `async-backend = epoll`. When it is absent the file is empty.
+The Ghostty config uses Gruvbox, Berkeley Mono at 14pt, and Shift+Enter as a newline for Claude Code. `config/ghostty/config.d/hyprland.tera` is rendered to `~/.config/ghostty/config.d/hyprland`. The render runs `command -v Hyprland`. When that binary is present the file contains `async-backend = epoll`. When it is absent the file is empty.
