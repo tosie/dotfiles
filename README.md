@@ -42,11 +42,11 @@ An old `~/.gitconfig`, `~/.zshrc`, `~/.zprofile`, `~/.p10k.zsh`, `~/.vimrc`, `~/
 
 ## Tools
 
-Installed with Homebrew on macOS, apt or pacman on Linux, and winget on Windows, where that package exists. Apt names match Debian. An older Ubuntu release may not ship every one of them yet.
+Mise registry tools: atuin, difftastic, fastfetch, flyctl, glow, lazygit, neovim, starship, tmux, and usage. tmux is Linux and macOS only. The others install on macOS, Linux, and Windows.
 
-Shared: fish (not winget), starship, neovim, git, mise, atuin, tmux (not winget), difftastic, lazygit, fastfetch, btop, glow, flyctl (not pacman), watch (Homebrew and apt). `usage` is a mise tool (`usage = "latest"`), so it is installed on every platform.
+The rest are system packages, with Homebrew on macOS, apt or pacman on Linux, and winget on Windows, where that package exists. Apt names match Debian. An older Ubuntu release may not ship every one of them yet.
 
-Unix only: mosh, nnn, ncdu, lnav, Ghostty.
+System packages: fish (not winget), git, mise, btop, and watch (Homebrew and apt). Unix only: mosh, nnn, ncdu, lnav, and Ghostty.
 
 macOS only: Homebrew `shellenv` with analytics off, Kaleidoscope and difftastic in the macOS git include, Postgres.app on `PATH` when that app is installed, and the macOS defaults from the old `macos/set-defaults.sh`.
 

@@ -3,18 +3,10 @@
 # does not set [bootstrap.mise_shell_activate].
 
 [bootstrap.packages]
-# Shared tools. Each manager is limited to the OS where that package name exists.
+# System packages. Tools that exist in the mise registry are [tools] instead.
 "brew:fish" = { os = "macos" }
 "apt:fish" = { os = "linux" }
 "pacman:fish" = { os = "linux" }
-"brew:starship" = { os = "macos" }
-"apt:starship" = { os = "linux" }
-"pacman:starship" = { os = "linux" }
-"winget:Starship.Starship" = { os = "windows" }
-"brew:neovim" = { os = "macos" }
-"apt:neovim" = { os = "linux" }
-"pacman:neovim" = { os = "linux" }
-"winget:Neovim.Neovim" = { os = "windows" }
 "brew:git" = { os = "macos" }
 "apt:git" = { os = "linux" }
 "pacman:git" = { os = "linux" }
@@ -23,36 +15,10 @@
 "apt:mise" = { os = "linux" }
 "pacman:mise" = { os = "linux" }
 "winget:jdx.mise" = { os = "windows" }
-"brew:atuin" = { os = "macos" }
-"apt:atuin" = { os = "linux" }
-"pacman:atuin" = { os = "linux" }
-"winget:Atuinsh.Atuin" = { os = "windows" }
-"brew:tmux" = { os = "macos" }
-"apt:tmux" = { os = "linux" }
-"pacman:tmux" = { os = "linux" }
-"brew:difftastic" = { os = "macos" }
-"apt:difftastic" = { os = "linux" }
-"pacman:difftastic" = { os = "linux" }
-"winget:Wilfred.difftastic" = { os = "windows" }
-"brew:lazygit" = { os = "macos" }
-"apt:lazygit" = { os = "linux" }
-"pacman:lazygit" = { os = "linux" }
-"winget:JesseDuffield.lazygit" = { os = "windows" }
-"brew:fastfetch" = { os = "macos" }
-"apt:fastfetch" = { os = "linux" }
-"pacman:fastfetch" = { os = "linux" }
-"winget:Fastfetch-cli.Fastfetch" = { os = "windows" }
 "brew:btop" = { os = "macos" }
 "apt:btop" = { os = "linux" }
 "pacman:btop" = { os = "linux" }
 "winget:aristocratos.btop4win" = { os = "windows" }
-"brew:glow" = { os = "macos" }
-"apt:glow" = { os = "linux" }
-"pacman:glow" = { os = "linux" }
-"winget:charmbracelet.glow" = { os = "windows" }
-"brew:superfly/tap/flyctl" = { os = "macos" }
-"apt:flyctl" = { os = "linux" }
-"winget:Fly-io.flyctl" = { os = "windows" }
 "brew:watch" = { os = "macos" }
 "apt:watch" = { os = "linux" }
 
@@ -80,6 +46,15 @@
 "pacman:pacman-contrib" = { os = "linux" }
 
 [tools]
+atuin = "latest"
+difftastic = "latest"
+fastfetch = "latest"
+flyctl = "latest"
+glow = "latest"
+lazygit = "latest"
+neovim = "latest"
+starship = "latest"
+tmux = "latest"
 usage = "latest"
 
 [bootstrap.macos.defaults."com.apple.Finder"]
