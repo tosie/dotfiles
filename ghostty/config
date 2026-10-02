@@ -4,3 +4,60 @@ font-family = "Berkeley Mono Variable"
 shell-integration-features = ssh-env
 auto-update-channel = tip
 
+# The configuration can be reloaded at runtime by cmd+shift+, (macOS).
+theme = light:Gruvbox Light Hard,dark:Gruvbox Dark Hard
+
+font-family = "Berkeley Mono Variable"
+font-size = 14
+
+mouse-hide-while-typing = true
+copy-on-select = clipboard
+cursor-style-blink = false
+cursor-style = block
+adjust-cursor-thickness = 300%
+
+# don't ask when closing
+confirm-close-surface = false
+
+window-theme = system
+
+# don't show an overlay when resizing a window
+resize-overlay = never
+
+# always save the state of window when quitting
+window-save-state = always
+
+shell-integration-features = cursor,sudo,title,ssh-env
+window-inherit-working-directory=true
+
+# The opacity level (opposite of transparency) of an unfocused split.
+# Unfocused splits by default are slightly faded out to make it easier to see
+# which split is focused. To disable this feature, set this value to 1.
+unfocused-split-opacity = 0.90
+unfocused-split-fill = #a33503
+split-divider-color = #FF4F00
+
+# in Claude you can now change the Plan with alt+p on the fly, and the thinking
+# mode via alt+t. But in macOS, we use option, and it's not exactly an alt key.
+# This makes sure we treat the alt key as option, but only the left Option key.
+# That way my left key is acting as Alt and my right key as Option.
+macos-option-as-alt = left
+
+# Keybindings
+
+# navigate between splits (vim-style)
+# super+h requires remapping "Hide Ghostty" in macOS keyboard settings to F9
+# https://github.com/alacritty/alacritty/issues/5346#issuecomment-1055695103
+keybind = super+h=goto_split:left
+keybind = super+j=goto_split:bottom
+keybind = super+k=goto_split:top
+keybind = super+l=goto_split:right
+
+# resize splits
+keybind = super+right=resize_split:right,50
+keybind = super+down=resize_split:down,50
+keybind = super+left=resize_split:left,50
+keybind = super+up=resize_split:up,50
+
+# Claude Code shift+enter support
+keybind = shift+enter=text:\n
