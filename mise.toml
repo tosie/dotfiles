@@ -11,10 +11,6 @@
 "apt:git" = { os = "linux" }
 "pacman:git" = { os = "linux" }
 "winget:Git.Git" = { os = "windows" }
-"brew:mise" = { os = "macos" }
-"apt:mise" = { os = "linux" }
-"pacman:mise" = { os = "linux" }
-"winget:jdx.mise" = { os = "windows" }
 "brew:btop" = { os = "macos" }
 "apt:btop" = { os = "linux" }
 "pacman:btop" = { os = "linux" }
