@@ -75,7 +75,7 @@
 
 # Names that exist in Homebrew and not as apt, pacman, or winget packages.
 "brew:git-who" = { os = "macos" }
-"brew:jdx/tap/usage" = { os = "macos" }
+"brew:usage" = { os = "macos" }
 
 "apt:vim" = { os = "linux" }
 "pacman:vim" = { os = "linux" }
