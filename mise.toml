@@ -77,8 +77,6 @@
 "pacman:sudo" = { os = "linux" }
 "apt:wget" = { os = "linux" }
 "pacman:wget" = { os = "linux" }
-"apt:bash-completion" = { os = "linux" }
-"pacman:bash-completion" = { os = "linux" }
 "pacman:pacman-contrib" = { os = "linux" }
 
 [tools]
