@@ -1,0 +1,69 @@
+#!/usr/bin/env bash
+#MISE description="Set fish as the login shell"
+# Runs at the end of `mise bootstrap`. Safe to repeat.
+set -euo pipefail
+
+if [ "${1:-}" = "--dry-run" ]; then
+  echo "Would set fish as the login shell."
+  exit 0
+fi
+
+if [ "${OS:-}" = "Windows_NT" ]; then
+  echo "Windows has no login shell to switch. Set fish as the Windows Terminal profile."
+  exit 0
+fi
+
+find_fish() {
+  local candidate prefix
+  if command -v fish >/dev/null 2>&1; then
+    command -v fish
+    return 0
+  fi
+  if command -v brew >/dev/null 2>&1; then
+    prefix="$(brew --prefix)"
+    candidate="$prefix/bin/fish"
+    if [ -x "$candidate" ]; then
+      printf '%s\n' "$candidate"
+      return 0
+    fi
+  fi
+  for candidate in /opt/homebrew/bin/fish /usr/local/bin/fish /usr/bin/fish /bin/fish; do
+    if [ -x "$candidate" ]; then
+      printf '%s\n' "$candidate"
+      return 0
+    fi
+  done
+  return 1
+}
+
+fish_bin="$(find_fish)" || {
+  echo "fish is not installed, so the login shell was not changed." >&2
+  exit 1
+}
+
+current=""
+case "$(uname -s)" in
+  Darwin)
+    current="$(dscl . -read "$HOME" UserShell 2>/dev/null | awk '/UserShell:/ { print $2 }')"
+    ;;
+  *)
+    if command -v getent >/dev/null 2>&1; then
+      current="$(getent passwd "$USER" | awk -F: '{ print $NF }')"
+    elif [ -r /etc/passwd ]; then
+      current="$(awk -F: -v user="$USER" '$1 == user { print $NF }' /etc/passwd)"
+    fi
+    ;;
+esac
+
+if [ "$current" = "$fish_bin" ]; then
+  echo "Login shell is already $fish_bin."
+  exit 0
+fi
+
+if [ ! -r /etc/shells ] || ! grep -qxF "$fish_bin" /etc/shells; then
+  echo "Adding $fish_bin to /etc/shells."
+  printf '%s\n' "$fish_bin" | sudo tee -a /etc/shells >/dev/null
+fi
+
+chsh -s "$fish_bin"
+echo "Login shell set to $fish_bin. Open a new terminal to use it."
