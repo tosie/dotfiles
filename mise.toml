@@ -91,7 +91,7 @@ post-defaults = "{% if os() == 'macos' %}chflags nohidden \"$HOME/Library\" && s
 "~/.config/fish/functions" = { source = "config/fish/functions", mode = "symlink-each" }
 "~/.config/starship.toml" = "config/starship.toml"
 "~/.config/atuin/config.toml" = "config/atuin/config.toml"
-"~/.config/fastfetch/config.jsonc" = "config/fastfetch/config.jsonc"
+"~/.config/fastfetch" = "config/fastfetch"
 "~/.config/tmux/tmux.conf" = "config/tmux/tmux.conf"
 "~/.config/git/config" = "config/git/config"
 "~/.config/git/ignore" = "config/git/ignore"
