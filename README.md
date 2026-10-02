@@ -48,7 +48,7 @@ Shared: fish (not winget), starship, neovim, git, mise, atuin, tmux (not winget)
 
 Unix only: mosh, nnn, ncdu, lnav, Ghostty.
 
-macOS only: `git-who`, Homebrew `shellenv` with analytics off, Kaleidoscope and difftastic in the macOS git include, Postgres.app on `PATH` when that app is installed, and the macOS defaults from the old `macos/set-defaults.sh`.
+macOS only: Homebrew `shellenv` with analytics off, Kaleidoscope and difftastic in the macOS git include, Postgres.app on `PATH` when that app is installed, and the macOS defaults from the old `macos/set-defaults.sh`.
 
 Windows does not get Ghostty, iTerm, Postgres.app, Kaleidoscope, or Homebrew. The iTerm helper scripts are still installed.
 

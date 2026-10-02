@@ -73,9 +73,6 @@
 "apt:ghostty" = { os = "linux" }
 "pacman:ghostty" = { os = "linux" }
 
-# Names that exist in Homebrew and not as apt, pacman, or winget packages.
-"brew:git-who" = { os = "macos" }
-
 "apt:sudo" = { os = "linux" }
 "pacman:sudo" = { os = "linux" }
 "apt:wget" = { os = "linux" }
