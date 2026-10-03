@@ -44,7 +44,7 @@ An old `~/.gitconfig`, `~/.zshrc`, `~/.zprofile`, `~/.p10k.zsh`, `~/.vimrc`, `~/
 
 ## Tools
 
-Mise registry tools: atuin, difftastic, fastfetch, flyctl, glow, lazygit, neovim, starship, tmux, and usage. tmux is Linux and macOS only. The others install on macOS, Linux, and Windows.
+Mise registry tools: atuin, difftastic, fastfetch, flyctl, glow, lazygit, neovim, starship, tmux, and usage. tmux is Linux and macOS only. The others install on macOS, Linux, and Windows. Each is `latest` in this repo. After install, bootstrap sets a global `@latest` default when that tool has none, so the shims work from `$HOME` (an SSH login) as well as inside this repo. An existing global version is left alone.
 
 The rest are system packages, with Homebrew on macOS, apt or pacman on Linux, and winget on Windows, where that package exists. Apt names match Debian. An older Ubuntu release may not ship every one of them yet.
 

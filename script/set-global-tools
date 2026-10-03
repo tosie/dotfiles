@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+# Set each installed [tools] entry as a global @latest default.
+# Project config only applies inside this repo. An SSH login starts in $HOME,
+# where the starship and atuin shims otherwise have no version.
+# Safe to repeat. An existing global version is left alone.
+set -euo pipefail
+
+if [ "${1:-}" = "--dry-run" ]; then
+  echo "Would set global mise defaults to @latest."
+  exit 0
+fi
+
+root="$(CDPATH= cd -- "$(dirname "$0")/.." && pwd)"
+
+tools=()
+while IFS= read -r name; do
+  [ -n "$name" ] || continue
+  tools+=("$name")
+done < <(awk '
+  /^\[tools\]/ { in_tools = 1; next }
+  /^\[/ { in_tools = 0 }
+  in_tools && $1 ~ /^[A-Za-z0-9_-]+$/ && $2 == "=" && $3 == "\"latest\"" { print $1 }
+' "$root/mise.toml")
+
+if [ "${#tools[@]}" -eq 0 ]; then
+  echo "No [tools] entries found in $root/mise.toml." >&2
+  exit 1
+fi
+
+# Outside this repo the project mise.toml is not active, which is what an SSH
+# login sees. Query and write the global config from there.
+cd /tmp
+
+for tool in "${tools[@]}"; do
+  if ! mise ls --installed "$tool" 2>/dev/null | awk -v tool="$tool" '$1 == tool { found = 1 } END { exit !found }'; then
+    echo "Skipping global default for $tool; it is not installed."
+    continue
+  fi
+  if mise ls -g -c "$tool" 2>/dev/null | awk -v tool="$tool" '$1 == tool { found = 1 } END { exit !found }'; then
+    continue
+  fi
+  mise use -g "${tool}@latest"
+done

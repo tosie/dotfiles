@@ -35,6 +35,8 @@
 "pacman:wget" = { os = "linux" }
 "pacman:pacman-contrib" = { os = "linux" }
 
+# These versions apply inside this repo. script/set-global-tools also sets
+# each installed one with `mise use -g <tool>@latest` so shims work from $HOME.
 [tools]
 atuin = "latest"
 difftastic = "latest"
@@ -93,6 +95,7 @@ fi
 true
 {% endif %}
 """
+post-tools = "bash \"{{ config_root }}/script/set-global-tools\""
 final = "bash \"{{ config_root }}/script/set-fish-login-shell\""
 
 [dotfiles]
