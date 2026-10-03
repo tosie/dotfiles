@@ -28,9 +28,6 @@
 "brew:lnav" = { os = "macos" }
 "apt:lnav" = { os = "linux" }
 "pacman:lnav" = { os = "linux" }
-"brew-cask:ghostty" = { os = "macos" }
-"apt:ghostty" = { os = "linux" }
-"pacman:ghostty" = { os = "linux" }
 
 "apt:sudo" = { os = "linux" }
 "pacman:sudo" = { os = "linux" }

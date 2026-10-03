@@ -48,11 +48,11 @@ Mise registry tools: atuin, difftastic, fastfetch, flyctl, glow, lazygit, neovim
 
 The rest are system packages, with Homebrew on macOS, apt or pacman on Linux, and winget on Windows, where that package exists. Apt names match Debian. An older Ubuntu release may not ship every one of them yet.
 
-System packages: fish (not winget), git, btop, and watch (Homebrew and apt). Unix only: nnn, ncdu, lnav, and Ghostty.
+System packages: fish (not winget), git, btop, and watch (Homebrew and apt). Unix only: nnn, ncdu, and lnav.
 
 macOS only: Homebrew `shellenv` with analytics off, Kaleidoscope and difftastic in the macOS git include, Postgres.app on `PATH` when that app is installed, and the macOS defaults from the old `macos/set-defaults.sh`.
 
-Windows does not get Ghostty, iTerm, Postgres.app, Kaleidoscope, or Homebrew. The iTerm helper scripts are still installed.
+Windows does not get iTerm, Postgres.app, Kaleidoscope, or Homebrew. The iTerm helper scripts are still installed.
 
 ## Shell
 
@@ -78,4 +78,4 @@ On Omarchy, `theme.lua` loads `~/.local/state/omarchy/current/theme/neovim.lua` 
 
 ## Ghostty and Hyprland
 
-The Ghostty config uses Gruvbox, Berkeley Mono at 14pt, and Shift+Enter as a newline for Claude Code. `config/ghostty/config.d/hyprland.tera` is rendered to `~/.config/ghostty/config.d/hyprland`. The render runs `command -v Hyprland`. When that binary is present the file contains `async-backend = epoll`. When it is absent the file is empty.
+Install Ghostty yourself. Bootstrap links its config, which uses Gruvbox, Berkeley Mono at 14pt, and Shift+Enter as a newline for Claude Code. `config/ghostty/config.d/hyprland.tera` is rendered to `~/.config/ghostty/config.d/hyprland`. The render runs `command -v Hyprland`. When that binary is present the file contains `async-backend = epoll`. When it is absent the file is empty.
