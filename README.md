@@ -60,7 +60,7 @@ Fish is the interactive shell. Starship is the prompt (the same `starship.toml` 
 
 Atuin starts offline. To sync later, run `atuin register` for the hosted service, or set `sync_address` in `~/.config/atuin/config.toml` for a server you run. Leave it unset to stay local. The encryption key (`~/.local/share/atuin/key`) and the session token stay on the machine. Import existing history once, yourself, with `atuin import auto`.
 
-`reload` restarts fish in this terminal so config, functions, and completions are read again. The current directory stays. `c` with no argument opens `~/Developer`. With a path it opens that project, so `c some/project` is `~/Developer/some/project`. Tab completes directories under that folder, one component at a time and ignoring case, so `c so` becomes `c some/` and `c some/pro` becomes `c some/project/`. The completed path uses each directory's real name. `tm` attaches the tmux session named `main`. `n` opens Neovim, and opens the current directory when called with no arguments. Docker keeps `d`, `d-c`, `dcd`, `dcu`, and `dcud`. Ruby keeps `be` and `ber`.
+`reload` sources `conf.d`, `config.fish`, functions, and completions again in this shell. `c` with no argument opens `~/Developer`. With a path it opens that project, so `c some/project` is `~/Developer/some/project`. Tab completes directories under that folder, one component at a time and ignoring case, so `c so` becomes `c some/` and `c some/pro` becomes `c some/project/`. The completed path uses each directory's real name. `tm` attaches the tmux session named `main`. `n` opens Neovim, and opens the current directory when called with no arguments. Docker keeps `d`, `d-c`, `dcd`, `dcu`, and `dcud`. Ruby keeps `be` and `ber`.
 
 ## Git
 
