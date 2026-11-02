@@ -56,7 +56,7 @@ Windows does not get iTerm, Postgres.app, Kaleidoscope, or Homebrew. The iTerm h
 
 ## Shell
 
-Fish is the interactive shell. Starship is the prompt (the same `starship.toml` Omarchy uses). Ctrl-R is Atuin: it cycles session, directory, then global. Enter runs the line. Tab edits it. Up and Down stay fish prefix search.
+Fish is the interactive shell. Starship is the prompt (the same `starship.toml` Omarchy uses). Over SSH it starts with `user@host`. A local login keeps the directory, git state, and `❯`. The username still appears, with a trailing `@`, for root and when this shell's user is not the login user. Ctrl-R is Atuin: it cycles session, directory, then global. Enter runs the line. Tab edits it. Up and Down stay fish prefix search.
 
 Atuin starts offline. To sync later, run `atuin register` for the hosted service, or set `sync_address` in `~/.config/atuin/config.toml` for a server you run. Leave it unset to stay local. The encryption key (`~/.local/share/atuin/key`) and the session token stay on the machine. Import existing history once, yourself, with `atuin import auto`.
 
